@@ -1,6 +1,6 @@
 #pragma once
 #include "SFML\Graphics.hpp"
-
+#include <vector>
 
 
 class world {
@@ -10,11 +10,18 @@ public:
 		sand,ground
 	};
 
-	int width;
-	int height;
+	sf::Vector2i mapTiles[100][100];
 
+
+
+
+	world(int X,int Y) {
 	
+	}
 
+	void initializeWorld() {
+		
+	}
 
 
 	

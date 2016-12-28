@@ -122,6 +122,9 @@
     <ClInclude Include="monster.hpp" />
     <ClInclude Include="world.h" />
   </ItemGroup>
+  <ItemGroup>
+    <Text Include="tiles.txt" />
+  </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
   </ImportGroup>

@@ -1,3 +1,4 @@
-﻿  Source.cpp
+﻿cl : Command line warning D9028: minimal rebuild failure, reverting to normal build
+  Source.cpp
   RPG.vcxproj -> C:\Users\Kacper\Documents\Visual Studio 2015\Projects\RPG\Debug\RPG.exe
   RPG.vcxproj -> C:\Users\Kacper\Documents\Visual Studio 2015\Projects\RPG\Debug\RPG.pdb (Partial PDB)

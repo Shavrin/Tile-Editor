@@ -119,6 +119,7 @@
     <ClCompile Include="Source.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="game.h" />
     <ClInclude Include="monster.hpp" />
     <ClInclude Include="world.h" />
   </ItemGroup>

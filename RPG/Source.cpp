@@ -4,8 +4,16 @@
 #include "SFML\Window.hpp"
 
 #include "world.h"
+#include "game.h"
+#include <Windows.h>
+
+
+
 
 int main() {
+
+	Game game;
+	
 	sf::RenderWindow mainWindow(sf::VideoMode(540, 480), "RPG");
 
 	World world;
@@ -20,6 +28,22 @@ int main() {
 		sf::Event mainEvent;
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 		while (mainWindow.pollEvent(mainEvent)) {
 			switch (mainEvent.type) {
 			case sf::Event::Closed:
@@ -31,6 +55,8 @@ int main() {
 					//world.randomize();
 
 					world.loadFromFile();
+					gotoxy(0, 2);
+
 					world.showMapTiles();
 				}
 				if (mainEvent.key.code == sf::Keyboard::Escape) {
@@ -56,13 +82,45 @@ int main() {
 					mainWindow.setView(view1);
 
 				}
+				if (mainEvent.key.code == sf::Keyboard::R) {
+					world.randomize();
+				}
+				if (mainEvent.key.code == sf::Keyboard::S) {
+					game.toggleMode();
+					game.showGameMode();
+				}
+				
+				if (mainEvent.key.code == sf::Keyboard::K) {
+					gotoxy(0, 2);
+					world.showMapTiles();
+
+				}
+				if (mainEvent.key.code == sf::Keyboard::M) {
+					gotoxy(15, 0);
+					world.incrementTile(game.getHighlightedTile().x, game.getHighlightedTile().y);
+					world.loadFromFile();
+					gotoxy(0, 2);
+
+					world.showMapTiles();
+				}
+
 			}
 		}
 		
+
+
 		mainWindow.clear(sf::Color::Magenta);
-		
+
 		world.draw(mainWindow);
+		if (game.activeMode == Game::editorMode) {
 		
+
+			game.highlightTile(mainWindow);
+			gotoxy(15, 2);
+			std::cout<<"CurrTile: X:"<<game.getHighlightedTile().x<<"    "<< game.getHighlightedTile().y<<"     \n";
+		
+		}
+
 		mainWindow.display();
 
 	}

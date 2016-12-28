@@ -1,1 +1,9 @@
 RPG.VC.opendb
+*.suo
+.vs/RPG/v14/.suo
+*.exe
+*.pdb
+Debug/RPG.ilk
+*.tlog
+RPG/Debug/Source.obj
+*.idb

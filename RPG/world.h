@@ -9,7 +9,7 @@
 #include "Tile.h"
 
 #include "SFML\Graphics.hpp"
-#include <array>
+#include <vector>
 
 
 
@@ -18,6 +18,7 @@ class World {
 
 
 private:
+	
 
 	int mapTiles[SIZE][SIZE];
 
@@ -31,6 +32,8 @@ private:
 
 
 public:
+		
+		
 
 	World();
 	void loadFromFile(std::string &filename);
@@ -40,7 +43,7 @@ public:
 	void randomizeMapTiles();
 	
 
-
+	friend class EditorMode;
 };
 
 

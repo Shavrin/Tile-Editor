@@ -20,7 +20,7 @@ void EditorMode::update(sf::RenderWindow &window) {
 				break;
 			}
 		}
-		for (int i = 0; i < 18; i++) {
+		for (int i = 0; i < SIZE; i++) {
 			if (pos.y > i*(HEIGHT / SIZE) && pos.y <(i + 1)*(HEIGHT / SIZE)) {
 				highlight.setPosition(sf::Vector2f(highlight.getPosition().x, i*(HEIGHT / SIZE)));
 				highlightedTile.y = i;
@@ -29,6 +29,29 @@ void EditorMode::update(sf::RenderWindow &window) {
 
 			}
 		}
+
+}
+void EditorMode::handleInput(World &world,sf::Mouse::Button button,bool isPressed){
+	
+	if (mouseButtonPressedL == false) { if (button == sf::Mouse::Left) { incrementTile(world); mouseButtonPressedL = isPressed; } }
+	else mouseButtonPressedL = isPressed;
+
+	if (mouseButtonPressedR == false) { if (button == sf::Mouse::Right) { decrementTile(world); mouseButtonPressedR = isPressed; } }
+	else mouseButtonPressedR = isPressed;
+
+}
+void EditorMode::incrementTile(World &world)
+{
+	if (world.mapTiles[highlightedTile.x][highlightedTile.y] == 5) world.mapTiles[highlightedTile.x][highlightedTile.y] = 0;
+	else world.mapTiles[highlightedTile.x][highlightedTile.y]++;
+	
+
+}
+void EditorMode::decrementTile(World &world)
+{
+
+	if (world.mapTiles[highlightedTile.x][highlightedTile.y] == 0) world.mapTiles[highlightedTile.x][highlightedTile.y] = 5;
+	else world.mapTiles[highlightedTile.x][highlightedTile.y]--;
 
 }
 void EditorMode::render(sf::RenderWindow &window){

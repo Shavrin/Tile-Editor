@@ -8,3 +8,4 @@ Debug/RPG.ilk
 RPG/Debug/Source.obj
 *.idb
 RPG/tiles.txt
+RPG/RPG.vcxproj.user
